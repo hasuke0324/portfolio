@@ -16,7 +16,7 @@ header {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 18px;
 }
-.header__list__prof, .header__list__pr, .header__list__skill, .header__list__url {
+.header__list__prof, .header__list__pr, .header__list__skill, .header__list__prog {
   padding-right: 60px;
   list-style: none;
 }
@@ -31,7 +31,7 @@ main {
 .left__box {
   width: 28%;
 }
-.left__box__prof {
+.left__box__prof, .left__box__pr, .left__box__skill, .left__box__prog  {
   background-color: #EEEEEE;
   width: 95%;
   height: 95%;
