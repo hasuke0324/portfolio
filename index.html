@@ -7,58 +7,191 @@
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul class="header__lists">
-        <li class="header__list__prof">Yusuke Hasui</li>
-        <li class="header__list__pr">PR</li>
-        <li class="header__list__skill">Skill</li>
-        <li class="header__list__url">URL</li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <div class="left__box">
-      <div class="left__box__prof">
-        プロフィール
-      </div>
-      <!-- <div class="left__box__pr">
-        自己PR
-      </div>
-      <div class="left__box__skill">
-        Skill
-      </div>
-      <div class="left__box__URL">
-        URL
-      </div> -->
-    </div>
-    <div class="right__box">
-      <div class="right__box__top">
-        <ul class="work__lists" style="
-        margin-top: 0px;
-    ">
-          <li class="work__01">01. My Todo</li>
-          <li class="work__02">02. Why Issue</li>
-          <li class="work__03">03. free-market</li>
+  <div id="app">
+    <header>
+      <nav>
+        <ul class="header__lists">
+          <li 
+          class="header__list__prof"
+          v-on:mouseover="prfMouseOver"
+          v-on:mouseout="prfMouseOut">
+          Yusuke Hasui
+          </li>
+          <li 
+          class="header__list__pr"
+          v-on:mouseover="prMouseOver"
+          v-on:mouseout="prMouseOut">
+          PR
+          </li>
+          <li 
+          class="header__list__skill"
+          v-on:mouseover="skillMouseOver"
+          v-on:mouseout="skillMouseOut">
+          Skill
+          </li>
+          <li 
+          class="header__list__prog"
+          v-on:mouseover="progMouseOver"
+          v-on:mouseout="progMouseOut"
+          >Programming</li>
         </ul>
-      </div>
-      <div class="right__box__bottom">
-        <div class="right__box__work01">
-          My Todo
+      </nav>
+    </header>
+    <main>
+      <div class="left__box">
+        <div class="left__box__prof" v-if="showPrf">
+          プロフィール<br>
+          <br>
+          <span style="font-size:0.85em;">
+          氏名:蓮井 雄介<br>
+          1985年03月24日生<br>
+          <br>
+          2007年03月 龍谷大学法学部法律学科卒業<br>
+          2010年03月 東京フィルムセンタースクールオブアート専門学校卒業<br>
+          2010年04月 株式会社ソケッツ 入社<br>
+          2014年10月 株式会社ソケッツ 退社<br>
+          2014年11月 株式会社IBJ 入社<br>
+          2020年11月 株式会社IBJ 退社<br>
+          <br>
+          私は1社目でモバイルサービスにおける企画運営と事業企画を経験、
+          2社目では婚活という業界で店舗開発、支店長を担ってきました。<br>
+          1社目ではサービスのログを分析し、UU数とPV数増加に努め113%UPを達成しました。<br>
+          2社目では主にマネジメントやプロジェクトリーダーの役割が多く、
+          チーム全体の実績向上が求められましたが、店舗内では過去最高の営業成績や全国1位の成婚数などの結果に結びつけてきました。<br>
+          分析をして仮説を立て、仕組みで解決することに注力して実績を残してきました。<br>
+          2020年4月からプログラミングスクールへの入学と共にプログラミング学習を開始しました。<br>
+          </span>
         </div>
-        <!-- <div class="right__box__work02">
-          Why Issue
+        <div class="left__box__pr" v-if="showPr">
+          自己PR<br>
+          <br>
+          1. 仕組みによる解決能力<br>
+          <br>
+          <span style="font-size:0.85em;">過去、マネジメントをする機会が多かったのですが、数字が上がらない、
+          メンバーのモチベーションも上がらないという状況で、前任から引き継ぐ場面もありました。<br>
+          そこで私は、そもそもメンバーのモチベーションに依存した環境から見直しました。
+          一例ですが、今月何件という当月の数字だけではなく、過去の推移、入会経路を店舗に貼り出すことで、
+          自分の成長具合や得意不得意をメンバー自身で気づける環境づくりに着手。<br>
+          結果、私から何も言わずとも、メンバー自身が弱点を見つめ直し、
+          徐々に数字を上げていくことができました。<br>
+          何かトラブルや課題があった場合は、人ではなく仕組みを責任にし、
+          環境を改善して行動していければと思っています。</span><br>
+          <br>
+          2. 新規事業の経験<br>
+          <br>
+          <span style="font-size:0.85em;">マネジメントと合わせて、0から1を作る仕事を任される機会もありました。
+          店舗出店など、業界に関しての知識がない中、坪単価はいくらが適切か、
+          C工事・B工事などの業界用語などを勉強し、その上で業者や貸主とのやり取り、
+          社内でも他部署からアサインされた方への指示だし、工程の進捗確認なども取りまとめてきました。<br>
+          経験がないからできないですと最初から否定せず、走りながら学び実行していこうとすることは強みであり、
+          早めのキャッチアップにも繋がるのではと考えています。</span>
         </div>
-        <div class="right__box__work03">
-          free-market
-        </div> -->
+        <div class="left__box__skill" v-if="showSkill">
+          開発・経験<br>
+          <br>
+          <span style="font-size:0.85em;">
+          2020年4月〜9月:TechCamp卒業<br>
+          <br>
+          【スクールでの学習経験】<br>
+          HTML・CSS・Ruby・Ruby on Rails・JavaScript・
+          jQuery・SQL・Git・ GitHub・Haml・SCSS・AWS 等の<br>
+          技術を用いたアプリケーション開発 <br>
+          <br>
+          スクールのカリキュラムとは別に独学でも学習を継続<br>
+          【個人での学習経験】<br>
+          PHP・Laravel・Vue.js・MAMP<br>
+          <br>
+          学習でインプットしたノウハウはTwitterを通して<br>
+          継続的にアウトプットを心掛けています<br>
+          <br>
+          【今後の学習計画】<br>
+          ・個人アプリにてCI/CDパイプラインを通す追加実装<br>
+          ・Twitter APIとの連携<br>
+          ・Dockerを使用した個人アプリ開発<br>
+          </span>
+        </div>
+        <div class="left__box__prog" v-if="showProg">
+          プログラミングに対する関心<br>
+          <br>
+          <span style="font-size:0.85em;">
+          前職では、店舗の責任者となりチーム全体の営業成績を上げることが求めらる機会がありました。<br>
+          そこで私はインバウンドの要素を強めるべく、お問い合わせページの構成やSEO・MEOに力を注ぎ、お客様からの問合せ数や入会数をアップさせることに成功しました。<br>
+          この体験から「ITの力は仕事の業務効率を上げ、時間とお金を生み出し、より成果につながる」と感じました。<br>
+          さらにチームメンバーの力を発揮してもらうにはどうすれば良いかと思った際にも、ITの力の凄さを感じることが多くありました。<br>
+          例えば、紙による顧客管理をエクセル化、お客様に説明する際のパワーポイントのアニメーション化を試みたのですが、<br>
+          セールスフォースなどの営業支援ツールやWEBサイトの料金シュミレーションの方が、便利で使いやすく、またお客様にも分かりやすいといったことです。<br>
+          もっと便利にするにはどうすれば良いか、もっとユーザーに響くにはこうしたらいいのではと、<br>
+          思えば思うほど、自身でそれを実現できないことにジレンマを感じ、それを実現することができるプログラマーに関心を強く持つようになりました。<br>
+          ITの力の恩恵を感じるだけでなく、与えていける立場に身を置いて尽力してきたいと考えています。
+          </span>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer>
-    <div class="text__center">
-      <span class="copy__mark">©︎YusukeHasui</span>
-    </div>
-  </footer>
+      <div class="right__box">
+        <div class="right__box__top">
+          <ul class="work__lists" style="
+          margin-top: 0px;
+      ">
+            <li class="work__01">01. My Todo</li>
+            <li class="work__02">02. Why Issue</li>
+            <li class="work__03">03. free-market</li>
+          </ul>
+        </div>
+        <div class="right__box__bottom">
+          <div class="right__box__work01">
+            My Todo
+          </div>
+          <!-- <div class="right__box__work02">
+            Why Issue
+          </div>
+          <div class="right__box__work03">
+            free-market
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="text__center">
+        <span class="copy__mark">©︎YusukeHasui</span>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+          showPrf: false,
+          showPr: false,
+          showSkill: false,
+          showProg: false,
+        },
+        methods: {
+          prfMouseOver() {
+            this.showPrf = true
+          },
+          prfMouseOut() {
+            this.showPrf = false
+          },
+          prMouseOver() {
+            this.showPr = true
+          },
+          prMouseOut() {
+            this.showPr = false
+          },
+          skillMouseOver() {
+            this.showSkill = true
+          },
+          skillMouseOut() {
+            this.showSkill = false
+          },
+          progMouseOver() {
+            this.showProg = true
+          },
+          progMouseOut() {
+            this.showProg = false
+          },
+        }
+    });
+  </script>
 </body>
 </html>
