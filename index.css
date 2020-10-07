@@ -29,7 +29,24 @@ main {
 .left__box {
   width: 28%;
 }
-.left__box__prof, .left__box__pr, .left__box__skill, .left__box__prog  {
+.left__box__prof {
+  background-color: #EEEEEE;
+  width: 95%;
+  height: 95%;
+  padding: 10px;
+  margin-left: 30px;
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.prfphoto {
+  position: absolute;
+    top:10px;
+    left: 70%;
+  width: 25%;
+  height: 20%;
+  box-shadow: 1px 1px 3px gray;
+}
+.left__box__pr, .left__box__skill, .left__box__prog  {
   background-color: #EEEEEE;
   width: 95%;
   height: 95%;
@@ -47,7 +64,7 @@ main {
   justify-content: space-between
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.img01, .img03 {
+.img01, .img02, .img03 {
   width: 84%;
   height: 98%;
 }
@@ -70,7 +87,7 @@ a:visited {
   margin-right: 10px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.right__box__work01, .right__box__work03 {
+.right__box__work01, .right__box__work02, .right__box__work03 {
   background-color: #EEEEEE;
   padding: 13px;
   width: 95%;
