@@ -46,6 +46,7 @@
           氏名:蓮井 雄介<br>
           1985年03月24日生<br>
           <br>
+          <br>
           2007年03月 龍谷大学法学部法律学科卒業<br>
           2010年03月 東京フィルムセンタースクールオブアート専門学校卒業<br>
           2010年04月 株式会社ソケッツ 入社<br>
@@ -61,6 +62,7 @@
           分析をして仮説を立て、仕組みで解決することに注力して実績を残してきました。<br>
           2020年4月からプログラミングスクールへの入学と共にプログラミング学習を開始しました。<br>
           </span>
+          <img src="./face.jpeg" class="prfphoto">
         </div>
         <div class="left__box__pr" v-if="showPr">
           自己PR<br>
@@ -139,10 +141,17 @@
               v-on:mouseout="imgMouseOut1"
               >01. My Todo</a>
             </li>
-            <li class="work__02">02. Why Issue</li>
+            <li class="work__02">
+              <a 
+              href="http://polar-chamber-46255.herokuapp.com/"
+              class="work__tex"
+              v-on:mouseover="imgMouseOver2"
+              v-on:mouseout="imgMouseOut2"
+              >02. Why Issue</a>
+            </li>
             <li class="work__03">
               <a 
-              href="#"
+              href="http://176.34.54.93/"
               class="work__tex"
               v-on:mouseover="imgMouseOver3"
               v-on:mouseout="imgMouseOut3"
@@ -150,6 +159,7 @@
             </li>
           </ul>
           <img src="./work01.png" class="img01" v-show="workImg01">
+          <img src="./work02.png" class="img02" v-show="workImg02">
           <img src="./work03.jpg" class="img03" v-show="workImg03">
         </div>
         <div class="right__box__bottom">
@@ -162,16 +172,28 @@
               本来自分が時間を費やすべき仕事は何なのか？迷いがちな方の課題を解決するために作成しました。
               初めてスクールのカリキュラム以外でRailsのCRUD処理を実装したアプリケーションとなります。
               RailsによるAjaxとAWSへのデプロイがこだわりポイントです。
-              Railsにおける基本的にCROUD処理、Ajax、AWSへのデプロイ方法を理解。<br>
+              Railsにおける基本的にCRUD処理、Ajax、AWSへのデプロイ方法を理解。<br>
               Ruby : 2.5.1/ Rails : 5.2.3/ インフラ : AWS/ WEBサーバー : Nginx/ Devise : ログイン機能/ 
               ajax : タスク追加と削除/ RSpec : テストコード/ コードレビュー : Rubocop/ 自動デプロイ : Capistrano<br>
               ※ゲストログイン(閲覧用)からログインしてお試しください。
              </span>
             </div>
-         </transition>
-          <!-- <div class="right__box__work02">
-            Why Issue
-          </div> -->
+          </transition>
+          <transition name="rightIn02">
+            <div class="right__box__work02"  v-show="workDesc02">
+              Why Issue : <span style="font-size:0.85em;">
+             「課題」と「状況」を整理するアプリケーションです。<br>
+              <br>
+              予算が達成しない、勉強が続かない、、これは課題なのか？状況なのか？<br>
+              私自身、マネジメントする立場で課題解決を考えたときに課題と状況の整理がうまくつけられないときがありました。
+              課題を解決するツールは様々ありますが、本アプリケーションはそもそもの「課題」をしっかり抽出するサポートをしてくれます。
+              スクールではPHPとVue.jsに関しては一切教えられていませんでしたが、独学でCRUD処理を実装しました。
+              1つの質問に関してしっかり向き合ってもらうために、一つの項目を入力してから、次のフォームが出るように Vue.jsで調整したところがこだわりです。
+              デプロイはHEROKUですが、今後CI/CDのパイプラインを通して自動的にデプロイさせたいと考えています。<br>
+              PHP : 7.3.11/ Laravel Framework : 8.6.0/ DB操作 : mysql/14.14/ フロント制御 :Vue.js/2.5.17/ インフラ : heroku/7.44.0
+             </span>
+            </div>
+          </transition>
           <transition name="rightIn03">
             <div class="right__box__work03" v-show="workDesc03">
               free-market : <span style="font-size:0.85em;">
@@ -206,8 +228,10 @@
           showSkill: false,
           showProg: false,
           workImg01: false,
+          workImg02: false,
           workImg03: false,
           workDesc01: false,
+          workDesc02: false,
           workDesc03: false,
         },
         methods: {
@@ -243,6 +267,14 @@
             this.workImg01 = false
             this.workDesc01 = false
           },
+          imgMouseOver2() {
+            this.workImg02 = true
+            this.workDesc02 = true
+          },
+          imgMouseOut2() {
+            this.workImg02 = false
+            this.workDesc02 = false
+          },
           imgMouseOver3() {
             this.workImg03 = true
             this.workDesc03 = true
@@ -260,6 +292,13 @@
     transition: transform 1900ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   }
   .rightIn01-enter, .rightIn01-leave-to {
+    transform: translateX(100vw) translateX(0px);
+  }
+  .rightIn02-enter-active, .rightIn02-leave-active {
+    transform: translate(0px, 0px);
+    transition: transform 1900ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+  .rightIn02-enter, .rightIn02-leave-to {
     transform: translateX(100vw) translateX(0px);
   }
   .rightIn03-enter-active, .rightIn03-leave-active {
