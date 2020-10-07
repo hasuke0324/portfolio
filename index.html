@@ -128,24 +128,65 @@
       </div>
       <div class="right__box">
         <div class="right__box__top">
-          <ul class="work__lists" style="
-          margin-top: 0px;
-      ">
-            <li class="work__01">01. My Todo</li>
+          <ul 
+          class="work__lists"
+          style="margin-top: 0px; padding-left: 0px; padding-right: 20px;" >
+            <li class="work__01">
+              <a 
+              href="http://175.41.230.217/users/sign_in"
+              class="work__tex"
+              v-on:mouseover="imgMouseOver1"
+              v-on:mouseout="imgMouseOut1"
+              >01. My Todo</a>
+            </li>
             <li class="work__02">02. Why Issue</li>
-            <li class="work__03">03. free-market</li>
+            <li class="work__03">
+              <a 
+              href="#"
+              class="work__tex"
+              v-on:mouseover="imgMouseOver3"
+              v-on:mouseout="imgMouseOut3"
+              >03. free-market</a>
+            </li>
           </ul>
+          <img src="./work01.png" class="img01" v-show="workImg01">
+          <img src="./work03.jpg" class="img03" v-show="workImg03">
         </div>
         <div class="right__box__bottom">
-          <div class="right__box__work01">
-            My Todo
-          </div>
+          <transition name="rightIn01">
+            <div class="right__box__work01" v-show="workDesc01">
+              My Todo : <span style="font-size:0.85em;">
+             「重要性」と「緊急性」を軸にタスク管理できるアプリケーションです。<br>
+              <br>
+              タスクを管理できつつ、自分がどれだけ質の高い仕事ができているかカウントと割合を出してくれます。
+              本来自分が時間を費やすべき仕事は何なのか？迷いがちな方の課題を解決するために作成しました。
+              初めてスクールのカリキュラム以外でRailsのCRUD処理を実装したアプリケーションとなります。
+              RailsによるAjaxとAWSへのデプロイがこだわりポイントです。
+              Railsにおける基本的にCROUD処理、Ajax、AWSへのデプロイ方法を理解。<br>
+              Ruby : 2.5.1/ Rails : 5.2.3/ インフラ : AWS/ WEBサーバー : Nginx/ Devise : ログイン機能/ 
+              ajax : タスク追加と削除/ RSpec : テストコード/ コードレビュー : Rubocop/ 自動デプロイ : Capistrano<br>
+              ※ゲストログイン(閲覧用)からログインしてお試しください。
+             </span>
+            </div>
+         </transition>
           <!-- <div class="right__box__work02">
             Why Issue
-          </div>
-          <div class="right__box__work03">
-            free-market
           </div> -->
+          <transition name="rightIn03">
+            <div class="right__box__work03" v-show="workDesc03">
+              free-market : <span style="font-size:0.85em;">
+              某有名フリマサービスのクローンサイトです。<br>
+              <br>
+              スクールの最終課題として複数人で開発を実施。私のチームは4名。DB設計から商品の出品、編集、削除の機能を主に担当しました。<br>
+              現場に出てチームで制作することを想定しGitHubやSlackを使用して開発をしました。
+              基本的なGitHub操作とチーム開発だから起こり得るコンフリクトの解消方法を理解しました。
+              実装だけではなく、参考にした記事や技術、エラーを解決した方法をSlackでメンバーに共有することにも注力し、チームの技術力UPにも努めました。
+              多階層のカテゴリー選択がプルダウンからできるところがこだわりポイントです。<br>
+              Ruby,Scss,Haml,JavaScript/ツール:VScode, Git, GitHub, Capistrano, DB:MySQL/サーバー：AWS(EC2）,nginx, unicorn<br>
+              Basic認証IDPASS: ID: admin、Pass:a2222 /テストIDPASS:tanaka_jiro@japan.com、PW:1111111
+              </span>
+            </div>
+          </transition>
         </div>
       </div>
     </main>
@@ -164,6 +205,10 @@
           showPr: false,
           showSkill: false,
           showProg: false,
+          workImg01: false,
+          workImg03: false,
+          workDesc01: false,
+          workDesc03: false,
         },
         methods: {
           prfMouseOver() {
@@ -190,8 +235,40 @@
           progMouseOut() {
             this.showProg = false
           },
+          imgMouseOver1() {
+            this.workImg01 = true
+            this.workDesc01 = true
+          },
+          imgMouseOut1() {
+            this.workImg01 = false
+            this.workDesc01 = false
+          },
+          imgMouseOver3() {
+            this.workImg03 = true
+            this.workDesc03 = true
+          },
+          imgMouseOut3() {
+            this.workImg03 = false
+            this.workDesc03 = false
+          },
         }
     });
   </script>
+  <style>
+  .rightIn01-enter-active, .rightIn01-leave-active {
+    transform: translate(0px, 0px);
+    transition: transform 1900ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+  .rightIn01-enter, .rightIn01-leave-to {
+    transform: translateX(100vw) translateX(0px);
+  }
+  .rightIn03-enter-active, .rightIn03-leave-active {
+    transform: translate(0px, 0px);
+    transition: transform 1900ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  }
+  .rightIn03-enter, .rightIn03-leave-to {
+    transform: translateX(100vw) translateX(0px);
+  }
+  </style>
 </body>
 </html>
